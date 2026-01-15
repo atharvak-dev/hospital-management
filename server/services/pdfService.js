@@ -4,13 +4,27 @@ const puppeteer = require('puppeteer');
  * Generates an invoice PDF and returns it as a base64 string.
  * No files are stored locally - everything is in-memory.
  */
-const generateInvoicePDF = async (invoiceData) => {
-    try {
-        const browser = await puppeteer.launch({
+let browserInstance = null;
+
+const getBrowser = async () => {
+    if (!browserInstance || !browserInstance.isConnected()) {
+        browserInstance = await puppeteer.launch({
             headless: 'new',
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
-        const page = await browser.newPage();
+    }
+    return browserInstance;
+};
+
+/**
+ * Generates an invoice PDF and returns it as a base64 string.
+ * No files are stored locally - everything is in-memory.
+ */
+const generateInvoicePDF = async (invoiceData) => {
+    let page = null;
+    try {
+        const browser = await getBrowser();
+        page = await browser.newPage();
 
         const htmlContent = generateHTML(invoiceData);
         await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
@@ -22,10 +36,8 @@ const generateInvoicePDF = async (invoiceData) => {
             margin: { top: '20mm', bottom: '20mm', left: '20mm', right: '20mm' }
         });
 
-        await browser.close();
-
         // Convert buffer to base64
-        const base64 = pdfBuffer.toString('base64');
+        const base64 = Buffer.from(pdfBuffer).toString('base64');
 
         return {
             base64,
@@ -35,6 +47,8 @@ const generateInvoicePDF = async (invoiceData) => {
     } catch (err) {
         console.error('PDF Generation Error:', err);
         throw err;
+    } finally {
+        if (page) await page.close();
     }
 };
 

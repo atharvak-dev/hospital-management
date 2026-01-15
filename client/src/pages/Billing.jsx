@@ -116,7 +116,6 @@ const Billing = () => {
         }
     };
 
-    // Helper to convert base64 to blob and trigger download
     const downloadBase64PDF = (base64, filename) => {
         const byteCharacters = atob(base64);
         const byteNumbers = new Array(byteCharacters.length);
