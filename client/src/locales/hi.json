@@ -1,0 +1,35 @@
+{
+    "print": {
+        "header": "बाह्य रोगी विजिट रिकॉर्ड",
+        "visit_no": "विजिट संख्या",
+        "date": "दिनांक",
+        "patient_name": "रोगी का नाम",
+        "patient_id": "रोगी आईडी",
+        "age_gender": "आयु/लिंग",
+        "doctor": "डॉक्टर",
+        "vitals": "महत्वपूर्ण संकेत",
+        "bp": "रक्तचाप",
+        "pulse": "धड़कन",
+        "temp": "तापमान",
+        "weight": "वजन",
+        "symptoms_diagnosis": "लक्षण और निदान",
+        "symptoms": "लक्षण",
+        "diagnosis": "निदान",
+        "rx": "पर्चा (Rx)",
+        "medicine": "दवा",
+        "dosage": "खुराक",
+        "frequency": "आवृत्ति",
+        "duration": "अवधि",
+        "instruction": "निर्देश",
+        "tests": "अनुशंसित जांच",
+        "advice": "सलाह / निर्देश",
+        "pre_op": "ऑपरेशन पूर्व निर्देश",
+        "follow_up": "अगली विजिट"
+    },
+    "whatsapp": {
+        "greeting": "नमस्ते",
+        "visit_summary": "विजिट सारांश",
+        "medicines": "दवाएं",
+        "regards": "सादर"
+    }
+}

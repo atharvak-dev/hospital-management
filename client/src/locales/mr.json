@@ -1,0 +1,35 @@
+{
+    "print": {
+        "header": "बाह्य रुग्ण तपासणी नोंद",
+        "visit_no": "विजिट क्रमांक",
+        "date": "दिनांक",
+        "patient_name": "रुग्णाचे नाव",
+        "patient_id": "रुग्ण आयडी",
+        "age_gender": "वय/लिंग",
+        "doctor": "डॉक्टर",
+        "vitals": "महत्वाचे संकेत",
+        "bp": "रक्तदाब",
+        "pulse": "नाडी",
+        "temp": "तापमान",
+        "weight": "वजन",
+        "symptoms_diagnosis": "लक्षणे आणि निदान",
+        "symptoms": "लक्षणे",
+        "diagnosis": "निदान",
+        "rx": "औषधोपचार (Rx)",
+        "medicine": "औषध",
+        "dosage": "डोस",
+        "frequency": "वारंवारता",
+        "duration": "कालावधी",
+        "instruction": "सूचना",
+        "tests": "शिफारस केलेल्या चाचण्या",
+        "advice": "सल्ला / सूचना",
+        "pre_op": "ऑपरेशन पूर्वीच्या सूचना",
+        "follow_up": "पुढील तपासणी"
+    },
+    "whatsapp": {
+        "greeting": "नमस्कार",
+        "visit_summary": "तपासणी सारांश",
+        "medicines": "औषधे",
+        "regards": "आपला"
+    }
+}

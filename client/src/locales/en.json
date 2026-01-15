@@ -1,0 +1,35 @@
+{
+    "print": {
+        "header": "OUTPATIENT VISIT RECORD",
+        "visit_no": "Visit No",
+        "date": "Date",
+        "patient_name": "Patient Name",
+        "patient_id": "Patient ID",
+        "age_gender": "Age/Gender",
+        "doctor": "Doctor",
+        "vitals": "VITAL SIGNS",
+        "bp": "BP",
+        "pulse": "Pulse",
+        "temp": "Temp",
+        "weight": "Weight",
+        "symptoms_diagnosis": "SYMPTOMS & DIAGNOSIS",
+        "symptoms": "Symptoms",
+        "diagnosis": "Diagnosis",
+        "rx": "PRESCRIPTION (Rx)",
+        "medicine": "Medicine",
+        "dosage": "Dosage",
+        "frequency": "Frequency",
+        "duration": "Duration",
+        "instruction": "Instruction",
+        "tests": "RECOMMENDED TESTS",
+        "advice": "ADVICE / INSTRUCTIONS",
+        "pre_op": "PRE-OPERATION INSTRUCTIONS",
+        "follow_up": "Follow-up Date"
+    },
+    "whatsapp": {
+        "greeting": "Hello",
+        "visit_summary": "Visit Summary",
+        "medicines": "Medicines",
+        "regards": "Regards"
+    }
+}
