@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import AppLayout from './layout/AppLayout'; // New Layout
 import ProtectedRoute from './components/ProtectedRoute';
@@ -20,6 +21,7 @@ import Prescriptions from './pages/Prescriptions';
 import VisitPrint from './pages/VisitPrint';
 import Templates from './pages/Templates';
 import Medicines from './pages/Medicines';
+import MyAccount from './pages/MyAccount';
 
 
 import { SidebarProvider } from './context/SidebarContext';
@@ -33,6 +35,7 @@ function App() {
           <SidebarProvider>
             <Routes>
               <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
 
               <Route element={<ProtectedRoute />}>
                 <Route element={<AppLayout><Outlet /></AppLayout>}>
@@ -50,6 +53,7 @@ function App() {
                   <Route path="/templates" element={<Templates />} />
                   <Route path="/medicines" element={<Medicines />} />
                   <Route path="/users" element={<Users />} />
+                  <Route path="/my-account" element={<MyAccount />} />
                 </Route>
               </Route>
 

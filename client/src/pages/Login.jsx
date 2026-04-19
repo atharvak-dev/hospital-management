@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Stethoscope } from 'lucide-react';
+import PasswordInput from '../components/common/PasswordInput';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -12,11 +13,19 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
         try {
             await login(username, password);
             navigate('/');
         } catch (err) {
-            setError('Invalid username or password');
+            const data = err.response?.data;
+            if (data?.error === 'pending') {
+                setError('⏳ Your account is awaiting admin approval. Please check back later.');
+            } else if (data?.error === 'rejected') {
+                setError('❌ Your account has been rejected by the admin. Please contact the hospital.');
+            } else {
+                setError('Invalid username or password');
+            }
         }
     };
 
@@ -52,12 +61,12 @@ const Login = () => {
 
                         <div>
                             <label className="block text-sm font-medium text-gray-700">Password</label>
-                            <input
-                                type="password"
-                                required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            <PasswordInput
+                                name="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                required
+                                className="mt-1 shadow-sm focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
 
@@ -69,10 +78,16 @@ const Login = () => {
                         </button>
                     </form>
 
-                    <div className="mt-6 text-center text-xs text-gray-500">
-                        <p>Demo Credentials:</p>
-                        <p>Admin: admin / admin123</p>
+                    <div className="mt-6 text-center text-xs text-gray-500 space-y-1">
+                        <p className="font-medium">Demo Credentials:</p>
+                        <p>admin / password123 &nbsp;|&nbsp; doctor / password123</p>
+                        <p>nurse / password123 &nbsp;|&nbsp; reception / password123</p>
                     </div>
+
+                    <p className="mt-4 text-center text-sm text-gray-600">
+                        New user?{' '}
+                        <a href="/signup" className="text-blue-600 hover:underline font-medium">Create an account</a>
+                    </p>
                 </div>
             </div>
         </div>
